@@ -4,7 +4,9 @@ import React, { useContext } from "react";
 //Libraries
 import OrganizationChart from "@dabeng/react-orgchart";
 import "bulma/css/bulma.min.css";
-//import "./mystyles.scss";
+//import "./mystyles2.scss";
+import "./mystyles.scss";
+import logo from "./assets/Qwrk Embleem Pakkie sb 130423 v1.png";
 //Pages
 
 import StepMain from "./pages/step-main.page";
@@ -26,7 +28,14 @@ const App = () => {
 
   return (
     <div className="App main container">
-      <div className="body notification">
+      <div className="columns is-centered is-mobile">
+        <div className="column is-narrow">
+          <figure class="image is-128x128">
+            <img src={logo} alt="qwrk logo" />
+          </figure>
+        </div>
+      </div>
+      <div className="body notification mobile-full-width-margin ">
         <div className="header container block">
           <h2 className="title">Setup Wizzard</h2>
         </div>
@@ -37,7 +46,7 @@ const App = () => {
           <div className="column">
             <button
               type="button"
-              className="button is-primary is-outlined is-fullwidth"
+              className="button is-info is-outlined is-fullwidth"
               onClick={() => decStep()}
             >
               Previous

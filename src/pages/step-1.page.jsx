@@ -20,7 +20,7 @@ const Step1 = () => {
       <WizBody
         step="1"
         subtitle="Actions"
-        video="https://www.youtube.com/watch?v=xNRJwmlRBNU"
+        video="https://www.youtube.com/embed/YE7VzlLtp-4"
       />
       <List
         listObject={actionListObj}

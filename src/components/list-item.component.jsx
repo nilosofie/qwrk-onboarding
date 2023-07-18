@@ -11,7 +11,7 @@ const ListItem = ({ value, remove, move, group, moveVis, groupVis }) => {
     <span className="column">
       <button
         type="button"
-        className="button is-primary"
+        className="button is-dark is-outlined is-responsive"
         onClick={() => move()}
       >
         <FontAwesomeIcon icon={faPlus} />
@@ -20,27 +20,36 @@ const ListItem = ({ value, remove, move, group, moveVis, groupVis }) => {
   );
   const removeVar = (
     <span className="column">
-      <button type="button" className="button" onClick={() => remove()}>
+      <button
+        type="button"
+        className="button is-link is-outlined is-responsive"
+        onClick={() => remove()}
+      >
         <FontAwesomeIcon icon={faMinus} />
       </button>
     </span>
   );
   const groupVar = (
     <span className="column">
-      <button type="button" className="button" onClick={() => group()}>
+      <button
+        type="button"
+        className="button is-dark is-outlined is-responsive"
+        onClick={() => group()}
+      >
         <FontAwesomeIcon icon={faObjectGroup} />
       </button>
     </span>
   );
 
   return (
-    <li>
-      <div className="container columns is-mobile">
-        <span className="column is-two-thirds">{value}</span>
-        <div className="column"></div>
-        <span className="column columns is-mobile">
-          {moveVis && moveVar} {groupVis && groupVar}{" "}
-          {typeof remove == "function" && removeVar}
+    <li className="block">
+      <div className="container columns is-vcentered is-mobile">
+        <span className="column">{value}</span>
+        <span className="column is-narrow">
+          <div className="columns is-mobile is-variable is-1">
+            {moveVis && moveVar} {groupVis && groupVar}{" "}
+            {typeof remove == "function" && removeVar}
+          </div>
         </span>
       </div>
     </li>

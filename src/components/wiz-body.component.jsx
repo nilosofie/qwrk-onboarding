@@ -1,6 +1,10 @@
 import React from "react";
 
-const WizBody = ({ step, subtitle, video }) => {
+const WizBody = ({
+  step,
+  subtitle,
+  video = "https://www.youtube.com/embed/q4E9L0Ic8Bw",
+}) => {
   return (
     <div className="block">
       <h3 className="subtitle">
@@ -12,14 +16,14 @@ const WizBody = ({ step, subtitle, video }) => {
         </p>
         <div className="container columns is-centered">
           <div className="column is-half is-centered">
-            <figure class="image is-16by9">
+            <figure className="image is-16by9">
               <iframe
-                class="has-ratio"
+                className="has-ratio"
                 width="320"
                 height="180"
-                src="https://www.youtube.com/embed/YE7VzlLtp-4"
-                frameborder="0"
-                allowfullscreen
+                src={video}
+                allowFullScreen
+                title="Intro Video"
               ></iframe>
             </figure>
           </div>

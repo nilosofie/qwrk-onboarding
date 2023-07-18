@@ -21,7 +21,9 @@ export const OrgTreeProvider = ({ children }) => {
   const [bucketList, setBucketList] = useState([treeRoot]);
 
   const addToActionList = (valueToAdd, id = nanoid()) => {
-    setActionList((old) => [...old, { id: id, item: valueToAdd }]);
+    valueToAdd
+      ? setActionList((old) => [...old, { id: id, item: valueToAdd }])
+      : alert("Please add a action");
   };
 
   const removeFromActionList = (id) => {

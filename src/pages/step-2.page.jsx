@@ -6,6 +6,7 @@ import List from "../components/list.component";
 import { OrgTreeContext } from "../context/org-tree.context";
 
 import { leadGenBucket } from "../data/tree-root.data";
+import { nanoid } from "nanoid";
 
 const Step2 = () => {
   //context
@@ -48,6 +49,18 @@ const Step2 = () => {
     pushToBucket(actionObj);
   };
 
+  const addActionToBucket = (item) => {
+    const actionObj = {
+      parentId: leadGenBucket.id,
+      id: nanoid(),
+      name: item,
+      title: item,
+      children: [],
+    };
+
+    pushToBucket(actionObj);
+  };
+
   const moveFromBucketList = (id) => {
     const obj = localListCopy.filter((obj) => obj.id === id)[0];
     console.log(obj);
@@ -59,12 +72,10 @@ const Step2 = () => {
 
   const bucketListObject = {
     arr: localListMap,
-    addToArray: () => {},
+    addToArray: addActionToBucket,
     removeFromArray: moveFromBucketList,
     moveItem: () => {},
     groupItem: () => {},
-    moveVis: false,
-    groupVis: false,
   };
 
   console.log("action");
@@ -83,7 +94,11 @@ const Step2 = () => {
 
   return (
     <div>
-      <WizBody step="2" subtitle="Lead Generation" video="Step 2 video" />
+      <WizBody
+        step="2"
+        subtitle="Lead Generation"
+        video="https://www.youtube.com/embed/YE7VzlLtp-4"
+      />
       <div className="container columns">
         <div className="column">
           <List

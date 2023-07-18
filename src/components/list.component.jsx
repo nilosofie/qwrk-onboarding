@@ -55,13 +55,13 @@ const List = ({ listObject, listLabel = "label1" }) => {
   return (
     <div className="list container block">
       <label className="subtitle">{listLabel}</label>
-      <div className="container box">
+      <div className="container box block mobile-full-width-padding">
         <ul>{mainArr}</ul>
         <form
-          className="new-item-container columns is-mobile is-vcentered"
+          className="new-item-container columns is-vcentered notification list-form is-mobile mobile-full-width-margin"
           onSubmit={submitHandler}
         >
-          <span className="column is-two-thirds">
+          <span className="column">
             <input
               type="text"
               className="input is-normal"
@@ -69,12 +69,8 @@ const List = ({ listObject, listLabel = "label1" }) => {
               onChange={textHandler}
             />
           </span>
-          <div className="column"></div>
-          <span className="column">
-            <button
-              type="submit"
-              className="button is-black is-outlined is-fullwidth"
-            >
+          <span className="column is-narrow">
+            <button type="submit" className="button is-primary is-responsive">
               {" "}
               <FontAwesomeIcon icon={faPlus} />{" "}
             </button>

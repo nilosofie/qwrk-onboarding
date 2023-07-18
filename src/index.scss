@@ -18,3 +18,35 @@ h1 {
 h2 {
   font-family: "Poppins", sans-serif;
 }
+
+.list-form {
+  padding: 10px;
+  margin: 1.5rem 0;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  .mobile-full-width-margin {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  .mobile-full-width-padding {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+
+$qwrk-prim: #00a6c4;
+$qwrk-sec: #ff6f64;
+$qwrk-pop: #ff4f59;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@700&display=swap");
+
+$family-sans-serif: "Montserrat", sans-serif;
+$primary: $qwrk-prim;
+$link: $qwrk-pop;
+$info: $qwrk-sec;
