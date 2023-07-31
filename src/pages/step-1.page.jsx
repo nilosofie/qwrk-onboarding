@@ -9,10 +9,12 @@ const Step1 = () => {
   const { actionList, addToActionList, removeFromActionList } =
     useContext(OrgTreeContext);
 
-  const actionListObj = {
+  const actionListObject = {
     arr: actionList,
     addToArray: addToActionList,
     removeFromArray: removeFromActionList,
+    addToArrayVis: true,
+    removeFromArrayVis: true,
   };
 
   return (
@@ -23,7 +25,7 @@ const Step1 = () => {
         video="https://www.youtube.com/embed/YE7VzlLtp-4"
       />
       <List
-        listObject={actionListObj}
+        listObject={actionListObject}
         listLabel="What needs to happen in your business?"
       />
     </div>

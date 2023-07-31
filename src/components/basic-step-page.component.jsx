@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import WizBody from "../components/wiz-body.component";
-import List from "../components/list.component";
+import List from "./list.component";
 
 import { OrgTreeContext } from "../context/org-tree.context";
 import { WizStepCountContext } from "../context/wiz-step-count.context";
@@ -74,26 +74,24 @@ const BasicStepPage = ({ localBucket, title, video }) => {
     removeFromBucket(obj.id);
   };
 
-  //ListObjects
-
-  const bucketListObject = {
-    arr: localListMap,
-    addToArray: addActionToBucket,
-    removeFromArray: moveFromBucketList,
-    moveItem: () => {},
-    groupItem: () => {},
-  };
-
-  console.log("action");
-
-  console.log(actionList);
-
   const actionListObject = {
     arr: actionList,
     addToArray: addToActionList,
     removeFromArray: removeFromActionList,
-    moveItem: moveActionToBucket,
-    moveVis: true,
+    moveItemToSub: moveActionToBucket,
+    removeFromArrayVis: true,
+    moveItemToSubVis: true,
+  };
+
+  const BucketListObject = {
+    arr: localListMap,
+    addToArray: addActionToBucket, //Add Item
+    removeFromArray: () => {}, //Delete
+    sendItemToMain: moveFromBucketList, // Move Item from sub array to main array
+    addItemToChild: () => {}, // Move Item from main array to sub array child
+    addToArrayVis: true,
+    removeFromArrayVis: true,
+    sendItemToMainVis: true,
   };
 
   //return
@@ -109,7 +107,7 @@ const BasicStepPage = ({ localBucket, title, video }) => {
           />
         </div>
         <div className="column">
-          <List listLabel={`${title}: `} listObject={bucketListObject} />
+          <List listLabel={`${title}: `} listObject={BucketListObject} />
         </div>
       </div>
     </div>

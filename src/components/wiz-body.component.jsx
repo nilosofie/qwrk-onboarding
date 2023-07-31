@@ -16,7 +16,7 @@ const WizBody = ({
         </p>
         <div className="container columns is-centered">
           <div className="column is-half is-centered">
-            <figure className="image is-16by9">
+            {/*<figure className="image is-16by9">
               <iframe
                 className="has-ratio"
                 width="320"
@@ -25,7 +25,7 @@ const WizBody = ({
                 allowFullScreen
                 title="Intro Video"
               ></iframe>
-            </figure>
+  </figure>*/}
           </div>
         </div>
       </div>

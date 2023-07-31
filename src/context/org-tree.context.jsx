@@ -66,7 +66,9 @@ export const OrgTreeProvider = ({ children }) => {
 
   //Remove an object from the bucket list
   const removeFromBucket = (id) => {
-    let newBucketArr = bucketList.filter((obj) => obj.id !== id);
+    let newBucketArr = bucketList
+      .filter((obj) => obj.parentId !== id)
+      .filter((obj) => obj.id !== id);
 
     setBucketList(newBucketArr);
   };

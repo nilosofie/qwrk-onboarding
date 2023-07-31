@@ -1,42 +1,67 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPlus,
   faMinus,
-  faObjectGroup,
+  faRightFromBracket,
+  faArrowDownShortWide,
+  faArrowUpShortWide,
 } from "@fortawesome/free-solid-svg-icons";
 
-const ListItem = ({ value, remove, move, group, moveVis, groupVis }) => {
-  const moveVar = (
-    <span className="column">
-      <button
-        type="button"
-        className="button is-dark is-outlined is-responsive"
-        onClick={() => move()}
-      >
-        <FontAwesomeIcon icon={faPlus} />
-      </button>
-    </span>
-  );
-  const removeVar = (
+const ListItem = ({
+  value,
+  removeFromArray,
+  moveItemToSub,
+  sendItemToMain,
+  addItemToChild,
+  removeFromArrayVis,
+  moveItemToSubVis,
+  sendItemToMainVis,
+  addItemToChildVis,
+}) => {
+  const removeFromArrayVar = (
     <span className="column">
       <button
         type="button"
         className="button is-link is-outlined is-responsive"
-        onClick={() => remove()}
+        onClick={() => removeFromArray()}
       >
         <FontAwesomeIcon icon={faMinus} />
       </button>
     </span>
   );
-  const groupVar = (
+
+  const moveItemToSubVar = (
     <span className="column">
       <button
         type="button"
         className="button is-dark is-outlined is-responsive"
-        onClick={() => group()}
+        onClick={() => moveItemToSub()}
       >
-        <FontAwesomeIcon icon={faObjectGroup} />
+        <FontAwesomeIcon icon={faRightFromBracket} />
+      </button>
+    </span>
+  );
+
+  const sendItemToMainVar = (
+    <span className="column">
+      <button
+        type="button"
+        className="button is-dark is-outlined is-responsive"
+        onClick={() => sendItemToMain()}
+      >
+        <FontAwesomeIcon icon={faArrowUpShortWide} />
+      </button>
+    </span>
+  );
+
+  const addItemToChildVar = (
+    <span className="column">
+      <button
+        type="button"
+        className="button is-dark is-outlined is-responsive"
+        onClick={() => addItemToChild()}
+      >
+        <FontAwesomeIcon icon={faArrowDownShortWide} />
       </button>
     </span>
   );
@@ -47,8 +72,10 @@ const ListItem = ({ value, remove, move, group, moveVis, groupVis }) => {
         <span className="column">{value}</span>
         <span className="column is-narrow">
           <div className="columns is-mobile is-variable is-1">
-            {moveVis && moveVar} {groupVis && groupVar}{" "}
-            {typeof remove == "function" && removeVar}
+            {moveItemToSubVis && moveItemToSubVar}{" "}
+            {addItemToChildVis && addItemToChildVar}{" "}
+            {sendItemToMainVis && sendItemToMainVar}{" "}
+            {removeFromArrayVis && removeFromArrayVar}
           </div>
         </span>
       </div>

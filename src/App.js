@@ -30,7 +30,7 @@ const App = () => {
     <div className="App main container">
       <div className="columns is-centered is-mobile">
         <div className="column is-narrow">
-          <figure class="image is-128x128">
+          <figure className="image is-128x128">
             <img src={logo} alt="qwrk logo" />
           </figure>
         </div>
