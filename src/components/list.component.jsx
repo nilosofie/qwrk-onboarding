@@ -79,7 +79,7 @@ const List = ({ listObject, listLabel = "label1" }) => {
       <label className="subtitle">{listLabel}</label>
       <div className="container box block mobile-full-width-padding">
         <ul ref={parentRef}>
-          {mainArr.length !== 0 ? mainArr : "No Itemes To Show"}
+          {mainArr.length !== 0 ? mainArr : <em>No Items to Show</em>}
         </ul>
         {addToArrayVis && (
           <form

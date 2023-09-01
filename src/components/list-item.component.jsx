@@ -2,9 +2,9 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMinus,
-  faRightFromBracket,
-  faArrowDownShortWide,
-  faArrowUpShortWide,
+  faDiagramSuccessor,
+  faDiagramPredecessor,
+  faDiagramNext,
 } from "@fortawesome/free-solid-svg-icons";
 
 const ListItem = ({
@@ -24,6 +24,7 @@ const ListItem = ({
         type="button"
         className="button is-link is-outlined is-responsive"
         onClick={() => removeFromArray()}
+        title="Delete"
       >
         <FontAwesomeIcon icon={faMinus} />
       </button>
@@ -36,8 +37,9 @@ const ListItem = ({
         type="button"
         className="button is-dark is-outlined is-responsive"
         onClick={() => moveItemToSub()}
+        title="Send to Bucket"
       >
-        <FontAwesomeIcon icon={faRightFromBracket} />
+        <FontAwesomeIcon icon={faDiagramSuccessor} />
       </button>
     </span>
   );
@@ -48,8 +50,9 @@ const ListItem = ({
         type="button"
         className="button is-dark is-outlined is-responsive"
         onClick={() => sendItemToMain()}
+        title="Send to Main"
       >
-        <FontAwesomeIcon icon={faArrowUpShortWide} />
+        <FontAwesomeIcon icon={faDiagramPredecessor} />
       </button>
     </span>
   );
@@ -60,8 +63,9 @@ const ListItem = ({
         type="button"
         className="button is-dark is-outlined is-responsive"
         onClick={() => addItemToChild()}
+        title="Send to Child"
       >
-        <FontAwesomeIcon icon={faArrowDownShortWide} />
+        <FontAwesomeIcon icon={faDiagramNext} />
       </button>
     </span>
   );
@@ -73,8 +77,8 @@ const ListItem = ({
         <span className="column is-narrow">
           <div className="columns is-mobile is-variable is-1">
             {moveItemToSubVis && moveItemToSubVar}{" "}
-            {addItemToChildVis && addItemToChildVar}{" "}
             {sendItemToMainVis && sendItemToMainVar}{" "}
+            {addItemToChildVis && addItemToChildVar}{" "}
             {removeFromArrayVis && removeFromArrayVar}
           </div>
         </span>

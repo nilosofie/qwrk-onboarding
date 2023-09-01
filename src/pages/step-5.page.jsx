@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 
 import { nanoid } from "nanoid";
 
-import BasicStepPage from "../components/basic-step-page.component";
+import ComplexStepPage from "../components/complex-step-page.component";
+
 import List from "../components/list.component";
 
 import { OrgTreeContext } from "../context/org-tree.context";
@@ -55,17 +56,20 @@ const Step5 = () => {
   console.log(localListArr[0]);
   return (
     <div>
-      <BasicStepPage
+      <ComplexStepPage
         localBucket={infrastrucBucket}
         video="https://www.youtube.com/embed/YE7VzlLtp-4"
         title="Infrastructure"
       />
-      {localListArr[0] && (
-        <div className="container">
-          <h3 className="subtitle">Infrastructure Departments</h3>
+      <br />
+      <div className="container">
+        <h3 className="subtitle">Infrastructure Departments</h3>
+        {localListArr[0] ? (
           <div className="columns is-multiline">{localListArr}</div>
-        </div>
-      )}
+        ) : (
+          <em>No Departments to Show</em>
+        )}
+      </div>
     </div>
   );
 };

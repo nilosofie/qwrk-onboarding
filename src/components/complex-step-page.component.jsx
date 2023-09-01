@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import WizBody from "../components/wiz-body.component";
+import WizBody from "./wiz-body.component";
 import List from "./list.component";
 
 import { OrgTreeContext } from "../context/org-tree.context";
@@ -12,7 +12,7 @@ import { nanoid } from "nanoid";
 //localBucket
 //title
 
-const BasicStepPage = ({ localBucket, title, video }) => {
+const ComplexStepPage = ({ localBucket, title, video }) => {
   //context
   const {
     pushToBucket,
@@ -85,8 +85,12 @@ const BasicStepPage = ({ localBucket, title, video }) => {
     addToArray: addToActionList,
     removeFromArray: removeFromActionList,
     moveItemToSub: moveActionToBucket,
+    addItemToChild: () => {
+      alert("Send to Child");
+    },
     removeFromArrayVis: true,
     moveItemToSubVis: true,
+    addItemToChildVis: true,
   };
 
   const BucketListObject = {
@@ -94,9 +98,13 @@ const BasicStepPage = ({ localBucket, title, video }) => {
     addToArray: addActionToBucket, //Add Item
     removeFromArray: removeFromBucketList, //Delete
     sendItemToMain: moveFromBucketList, // Move Item from sub array to main array
+    addItemToChild: () => {
+      alert("Send to Child");
+    }, // Move Item from main array to sub array child
     addToArrayVis: true,
     removeFromArrayVis: true,
     sendItemToMainVis: true,
+    addItemToChildVis: true,
   };
 
   //return
@@ -119,4 +127,4 @@ const BasicStepPage = ({ localBucket, title, video }) => {
   );
 };
 
-export default BasicStepPage;
+export default ComplexStepPage;
